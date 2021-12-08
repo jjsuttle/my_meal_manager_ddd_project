@@ -42,7 +42,7 @@
 
     <%= f.label :food_id %>
     <!-- Input for food_id start -->
-    <%= f.number_field :food_id, class: food_class, placeholder: "Enter food" %>
+    <%= f.collection_select :food_id, InventoryOfFoodItem.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for food_id end -->
     <% if food_was_invalid %>
       <% recipe_ingredient.errors.full_messages_for(:food).each do |message| %>
