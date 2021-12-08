@@ -1,4 +1,6 @@
 class InventoryOfFoodItemsController < ApplicationController
+  before_action :current_user_must_be_inventory_of_food_item_user, only: [:edit, :update, :destroy] 
+
   before_action :set_inventory_of_food_item, only: [:show, :edit, :update, :destroy]
 
   # GET /inventory_of_food_items
@@ -58,6 +60,14 @@ class InventoryOfFoodItemsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_inventory_of_food_item_user
+    set_inventory_of_food_item
+    unless current_user == @inventory_of_food_item.user
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_inventory_of_food_item
       @inventory_of_food_item = InventoryOfFoodItem.find(params[:id])
