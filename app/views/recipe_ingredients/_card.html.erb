@@ -1,0 +1,61 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Recipe Ingredient #<%= recipe_ingredient.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Recipe</dt>
+      <!-- Display recipe_id start -->
+      <dd><%= recipe_ingredient.recipe_id %></dd>
+      <!-- Display recipe_id end -->
+
+      <dt>Food</dt>
+      <!-- Display food_id start -->
+      <dd><%= recipe_ingredient.food_id %></dd>
+      <!-- Display food_id end -->
+
+      <dt>Ingredient name</dt>
+      <!-- Display ingredient_name start -->
+      <dd><%= recipe_ingredient.ingredient_name %></dd>
+      <!-- Display ingredient_name end -->
+
+      <dt>Quantity</dt>
+      <!-- Display quantity start -->
+      <dd><%= recipe_ingredient.quantity %></dd>
+      <!-- Display quantity end -->
+
+      <dt>Quantity units</dt>
+      <!-- Display quantity_units start -->
+      <dd><%= recipe_ingredient.quantity_units %></dd>
+      <!-- Display quantity_units end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back recipe_ingredient, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link recipe_ingredient start -->
+      <div class="col">
+        <%= link_to edit_recipe_ingredient_url(recipe_ingredient), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link recipe_ingredient end -->
+
+      <!-- Delete link recipe_ingredient start -->
+      <div class="col">
+        <%= link_to recipe_ingredient, method: :delete, data: { confirm: "Do you really want to delete this recipe_ingredient?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link recipe_ingredient end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(recipe_ingredient.updated_at) %> ago
+  </div>
+</div>
