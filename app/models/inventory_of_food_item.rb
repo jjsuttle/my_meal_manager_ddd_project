@@ -3,6 +3,10 @@ class InventoryOfFoodItem < ApplicationRecord
 
   # Direct associations
 
+  has_many   :recipe_ingredients,
+             :foreign_key => "food_id",
+             :dependent => :nullify
+
   belongs_to :user
 
   # Indirect associations
