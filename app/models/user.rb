@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :inventory_of_food_items,
+             :dependent => :destroy
+
   has_many   :recipe_reviews,
              :foreign_key => "reviewer_id",
              :dependent => :destroy
