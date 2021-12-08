@@ -1,71 +1,41 @@
-<!-- Form inventory_of_food_item start -->
 <%= form_with(model: @inventory_of_food_item, local: true) do |f| %>
-<!-- Form inventory_of_food_item end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for date_purchased start -->
   <div class="form-group">
     <%= f.label :date_purchased %>
 
-    <!-- Input for date_purchased start -->
     <%= f.date_select :date_purchased, class: "form-control" %>
-    <!-- Input for date_purchased end -->
   </div>
-  <!-- Label and input for date_purchased end -->
 
-  <!-- Label and input for expiration_date start -->
   <div class="form-group">
     <%= f.label :expiration_date %>
 
-    <!-- Input for expiration_date start -->
     <%= f.date_select :expiration_date, class: "form-control" %>
-    <!-- Input for expiration_date end -->
   </div>
-  <!-- Label and input for expiration_date end -->
 
-  <!-- Label and input for days_until_expiration start -->
   <div class="form-group">
     <%= f.label :days_until_expiration %>
 
-    <!-- Input for days_until_expiration start -->
     <%= f.text_field :days_until_expiration, class: "form-control" %>
-    <!-- Input for days_until_expiration end -->
   </div>
-  <!-- Label and input for days_until_expiration end -->
 
-  <!-- Label and input for purchased_status start -->
   <div class="form-group">
     <%= f.label :purchased_status %>
 
-    <!-- Input for purchased_status start -->
     <%= f.select :purchased_status, options_for_select(InventoryOfFoodItem.purchased_statuses.keys), {}, class: "form-control" %>
-    <!-- Input for purchased_status end -->
   </div>
-  <!-- Label and input for purchased_status end -->
 
-  <!-- Label and input for food_name start -->
   <div class="form-group">
     <%= f.label :food_name %>
 
-    <!-- Input for food_name start -->
     <%= f.text_field :food_name, class: "form-control" %>
-    <!-- Input for food_name end -->
   </div>
-  <!-- Label and input for food_name end -->
 
-  <!-- Label and input for notes start -->
   <div class="form-group">
     <%= f.label :notes %>
-    <!-- Input for notes start -->
     <%= f.text_area :notes, rows: "3", class: "form-control" %>
-    <!-- Input for notes end -->
   </div>
-  <!-- Label and input for notes end -->
 
   <%= f.submit "Create inventory of food item", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

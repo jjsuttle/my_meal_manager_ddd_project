@@ -1,12 +1,7 @@
 <% was_validated = inventory_of_food_item.errors.any? %>
 
 <%= form_with(model: inventory_of_food_item, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for date_purchased start -->
   <div class="form-group">
     <% date_purchased_class = "form-control" %>
     <% date_purchased_was_invalid = inventory_of_food_item.errors.include?(:date_purchased) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :date_purchased %>
-    <!-- Input for date_purchased start -->
     <%= f.date_select :date_purchased, class: date_purchased_class, placeholder: "Enter date purchased" %>
-    <!-- Input for date_purchased end -->
     <% if date_purchased_was_invalid %>
       <% inventory_of_food_item.errors.full_messages_for(:date_purchased).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,8 +24,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for date_purchased end -->
-  <!-- Label and input for expiration_date start -->
   <div class="form-group">
     <% expiration_date_class = "form-control" %>
     <% expiration_date_was_invalid = inventory_of_food_item.errors.include?(:expiration_date) %>
@@ -46,9 +37,7 @@
     <% end %>
 
     <%= f.label :expiration_date %>
-    <!-- Input for expiration_date start -->
     <%= f.date_select :expiration_date, class: expiration_date_class, placeholder: "Enter expiration date" %>
-    <!-- Input for expiration_date end -->
     <% if expiration_date_was_invalid %>
       <% inventory_of_food_item.errors.full_messages_for(:expiration_date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -57,8 +46,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for expiration_date end -->
-  <!-- Label and input for days_until_expiration start -->
   <div class="form-group">
     <% days_until_expiration_class = "form-control" %>
     <% days_until_expiration_was_invalid = inventory_of_food_item.errors.include?(:days_until_expiration) %>
@@ -72,9 +59,7 @@
     <% end %>
 
     <%= f.label :days_until_expiration %>
-    <!-- Input for days_until_expiration start -->
     <%= f.number_field :days_until_expiration, class: days_until_expiration_class, placeholder: "Enter days until expiration" %>
-    <!-- Input for days_until_expiration end -->
     <% if days_until_expiration_was_invalid %>
       <% inventory_of_food_item.errors.full_messages_for(:days_until_expiration).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -83,8 +68,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for days_until_expiration end -->
-  <!-- Label and input for purchased_status start -->
   <div class="form-group">
     <% purchased_status_class = "form-control" %>
     <% purchased_status_was_invalid = inventory_of_food_item.errors.include?(:purchased_status) %>
@@ -98,9 +81,7 @@
     <% end %>
 
     <%= f.label :purchased_status %>
-    <!-- Input for purchased_status start -->
     <%= f.select :purchased_status, options_for_select(InventoryOfFoodItem.purchased_statuses.keys), {}, class: "form-control" %>
-    <!-- Input for purchased_status end -->
     <% if purchased_status_was_invalid %>
       <% inventory_of_food_item.errors.full_messages_for(:purchased_status).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -109,8 +90,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for purchased_status end -->
-  <!-- Label and input for food_name start -->
   <div class="form-group">
     <% food_name_class = "form-control" %>
     <% food_name_was_invalid = inventory_of_food_item.errors.include?(:food_name) %>
@@ -124,9 +103,7 @@
     <% end %>
 
     <%= f.label :food_name %>
-    <!-- Input for food_name start -->
     <%= f.text_field :food_name, class: food_name_class, placeholder: "Enter food name" %>
-    <!-- Input for food_name end -->
     <% if food_name_was_invalid %>
       <% inventory_of_food_item.errors.full_messages_for(:food_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -135,8 +112,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for food_name end -->
-  <!-- Label and input for notes start -->
   <div class="form-group">
     <% note_class = "form-control" %>
     <% note_was_invalid = inventory_of_food_item.errors.include?(:note) %>
@@ -150,9 +125,7 @@
     <% end %>
 
     <%= f.label :notes %>
-    <!-- Input for notes start -->
     <%= f.text_area :notes, class: note_class, placeholder: "Enter note" %>
-    <!-- Input for notes end -->
     <% if note_was_invalid %>
       <% inventory_of_food_item.errors.full_messages_for(:note).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -161,6 +134,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for notes end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

@@ -1,7 +1,6 @@
 <% was_validated = recipe.errors.any? %>
 
 <%= form_with(model: recipe, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for recipe_name start -->
   <div class="form-group">
     <% recipe_name_class = "form-control" %>
     <% recipe_name_was_invalid = recipe.errors.include?(:recipe_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :recipe_name %>
-    <!-- Input for recipe_name start -->
     <%= f.text_field :recipe_name, class: recipe_name_class, placeholder: "Enter recipe name" %>
-    <!-- Input for recipe_name end -->
     <% if recipe_name_was_invalid %>
       <% recipe.errors.full_messages_for(:recipe_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for recipe_name end -->
-  <!-- Label and input for servings start -->
   <div class="form-group">
     <% serving_class = "form-control" %>
     <% serving_was_invalid = recipe.errors.include?(:serving) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :servings %>
-    <!-- Input for servings start -->
     <%= f.text_field :servings, class: serving_class, placeholder: "Enter serving" %>
-    <!-- Input for servings end -->
     <% if serving_was_invalid %>
       <% recipe.errors.full_messages_for(:serving).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for servings end -->
-  <!-- Label and input for cooking_time_minutes start -->
   <div class="form-group">
     <% cooking_time_minute_class = "form-control" %>
     <% cooking_time_minute_was_invalid = recipe.errors.include?(:cooking_time_minute) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :cooking_time_minutes %>
-    <!-- Input for cooking_time_minutes start -->
     <%= f.number_field :cooking_time_minutes, class: cooking_time_minute_class, placeholder: "Enter cooking time minute" %>
-    <!-- Input for cooking_time_minutes end -->
     <% if cooking_time_minute_was_invalid %>
       <% recipe.errors.full_messages_for(:cooking_time_minute).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for cooking_time_minutes end -->
-  <!-- Label and input for instructions start -->
   <div class="form-group">
     <% instruction_class = "form-control" %>
     <% instruction_was_invalid = recipe.errors.include?(:instruction) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :instructions %>
-    <!-- Input for instructions start -->
     <%= f.text_area :instructions, class: instruction_class, placeholder: "Enter instruction" %>
-    <!-- Input for instructions end -->
     <% if instruction_was_invalid %>
       <% recipe.errors.full_messages_for(:instruction).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for instructions end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

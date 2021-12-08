@@ -1,52 +1,30 @@
-<!-- Form recipe_ingredient start -->
 <%= form_with(model: @recipe_ingredient, local: true) do |f| %>
-<!-- Form recipe_ingredient end -->
 
-  <!-- Label and input for recipe_id start -->
-  <!-- Input for recipe_id start -->
   <%= f.hidden_field :recipe_id, value: @recipe.id %>
-  <!-- Input for recipe_id end -->
-  <!-- Label and input for recipe_id end -->
 
-  <!-- Label and input for food_id start -->
   <div class="form-group">
     <%= f.label :food_id %>
 
-    <!-- Input for food_id start -->
     <%= f.collection_select :food_id, InventoryOfFoodItem.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for food_id end -->
   </div>
-  <!-- Label and input for food_id end -->
 
-  <!-- Label and input for ingredient_name start -->
   <div class="form-group">
     <%= f.label :ingredient_name %>
 
-    <!-- Input for ingredient_name start -->
     <%= f.text_field :ingredient_name, class: "form-control" %>
-    <!-- Input for ingredient_name end -->
   </div>
-  <!-- Label and input for ingredient_name end -->
 
-  <!-- Label and input for quantity start -->
   <div class="form-group">
     <%= f.label :quantity %>
 
-    <!-- Input for quantity start -->
     <%= f.text_field :quantity, class: "form-control" %>
-    <!-- Input for quantity end -->
   </div>
-  <!-- Label and input for quantity end -->
 
-  <!-- Label and input for quantity_units start -->
   <div class="form-group">
     <%= f.label :quantity_units %>
 
-    <!-- Input for quantity_units start -->
     <%= f.select :quantity_units, options_for_select(RecipeIngredient.quantity_units.keys), {}, class: "form-control" %>
-    <!-- Input for quantity_units end -->
   </div>
-  <!-- Label and input for quantity_units end -->
 
   <%= f.submit "Create recipe ingredient", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

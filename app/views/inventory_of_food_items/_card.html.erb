@@ -6,43 +6,29 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @inventory_of_food_item.user.present? %>
           <%= link_to inventory_of_food_item.user, inventory_of_food_item.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Date purchased</dt>
-      <!-- Display date_purchased start -->
       <dd><%= inventory_of_food_item.date_purchased %></dd>
-      <!-- Display date_purchased end -->
 
       <dt>Expiration date</dt>
-      <!-- Display expiration_date start -->
       <dd><%= inventory_of_food_item.expiration_date %></dd>
-      <!-- Display expiration_date end -->
 
       <dt>Days until expiration</dt>
-      <!-- Display days_until_expiration start -->
       <dd><%= inventory_of_food_item.days_until_expiration %></dd>
-      <!-- Display days_until_expiration end -->
 
       <dt>Purchased status</dt>
-      <!-- Display purchased_status start -->
       <dd><%= inventory_of_food_item.purchased_status %></dd>
-      <!-- Display purchased_status end -->
 
       <dt>Food name</dt>
-      <!-- Display food_name start -->
       <dd><%= inventory_of_food_item.food_name %></dd>
-      <!-- Display food_name end -->
 
       <dt>Notes</dt>
-      <!-- Display notes start -->
       <dd><%= inventory_of_food_item.notes %></dd>
-      <!-- Display notes end -->
 
     </dl>
 
@@ -51,7 +37,6 @@
         <%= link_to_show_or_back inventory_of_food_item, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link inventory_of_food_item start -->
       <div class="col">
         <% if current_user == @inventory_of_food_item.user %>
           <%= link_to edit_inventory_of_food_item_url(inventory_of_food_item), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -59,9 +44,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link inventory_of_food_item end -->
 
-      <!-- Delete link inventory_of_food_item start -->
       <div class="col">
         <% if current_user == @inventory_of_food_item.user %>
           <%= link_to inventory_of_food_item, method: :delete, data: { confirm: "Do you really want to delete this inventory_of_food_item?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -69,7 +52,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link inventory_of_food_item end -->
     </div>
   </div>
 

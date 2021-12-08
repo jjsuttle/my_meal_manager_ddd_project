@@ -1,47 +1,25 @@
-<!-- Form recipe_review start -->
 <%= form_with(model: @recipe_review, local: true) do |f| %>
-<!-- Form recipe_review end -->
 
-  <!-- Label and input for reviewer_id start -->
-  <!-- Input for "reviewer_id" start -->
   <%= f.hidden_field :reviewer_id, value: current_user.id %>
-  <!-- Input for "reviewer_id" end -->
-  <!-- Label and input for reviewer_id end -->
 
-  <!-- Label and input for recipe_id start -->
-  <!-- Input for recipe_id start -->
   <%= f.hidden_field :recipe_id, value: @recipe.id %>
-  <!-- Input for recipe_id end -->
-  <!-- Label and input for recipe_id end -->
 
-  <!-- Label and input for rating start -->
   <div class="form-group">
     <%= f.label :rating %>
 
-    <!-- Input for rating start -->
     <%= f.text_field :rating, class: "form-control" %>
-    <!-- Input for rating end -->
   </div>
-  <!-- Label and input for rating end -->
 
-  <!-- Label and input for review start -->
   <div class="form-group">
     <%= f.label :review %>
-    <!-- Input for review start -->
     <%= f.text_area :review, rows: "3", class: "form-control" %>
-    <!-- Input for review end -->
   </div>
-  <!-- Label and input for review end -->
 
-  <!-- Label and input for recipe_name start -->
   <div class="form-group">
     <%= f.label :recipe_name %>
 
-    <!-- Input for recipe_name start -->
     <%= f.text_field :recipe_name, class: "form-control" %>
-    <!-- Input for recipe_name end -->
   </div>
-  <!-- Label and input for recipe_name end -->
 
   <%= f.submit "Create recipe review", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

@@ -6,37 +6,27 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Recipe</dt>
-      <!-- Display recipe_id start -->
       <dd>
         <% if @recipe_ingredient.recipe.present? %>
           <%= link_to recipe_ingredient.recipe, recipe_ingredient.recipe %>
         <% end %>
       </dd>
-      <!-- Display recipe_id end -->
 
       <dt>Food</dt>
-      <!-- Display food_id start -->
       <dd>
         <% if @recipe_ingredient.food.present? %>
           <%= link_to recipe_ingredient.food, recipe_ingredient.food %>
         <% end %>
       </dd>
-      <!-- Display food_id end -->
 
       <dt>Ingredient name</dt>
-      <!-- Display ingredient_name start -->
       <dd><%= recipe_ingredient.ingredient_name %></dd>
-      <!-- Display ingredient_name end -->
 
       <dt>Quantity</dt>
-      <!-- Display quantity start -->
       <dd><%= recipe_ingredient.quantity %></dd>
-      <!-- Display quantity end -->
 
       <dt>Quantity units</dt>
-      <!-- Display quantity_units start -->
       <dd><%= recipe_ingredient.quantity_units %></dd>
-      <!-- Display quantity_units end -->
 
     </dl>
 
@@ -45,21 +35,17 @@
         <%= link_to_show_or_back recipe_ingredient, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link recipe_ingredient start -->
       <div class="col">
         <%= link_to edit_recipe_ingredient_url(recipe_ingredient), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link recipe_ingredient end -->
 
-      <!-- Delete link recipe_ingredient start -->
       <div class="col">
         <%= link_to recipe_ingredient, method: :delete, data: { confirm: "Do you really want to delete this recipe_ingredient?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link recipe_ingredient end -->
     </div>
   </div>
 

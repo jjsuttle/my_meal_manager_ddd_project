@@ -6,37 +6,27 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Reviewer</dt>
-      <!-- Display reviewer_id start -->
       <dd>
         <% if @recipe_review.reviewer.present? %>
           <%= link_to recipe_review.reviewer, recipe_review.reviewer %>
         <% end %>
       </dd>
-      <!-- Display reviewer_id end -->
 
       <dt>Recipe</dt>
-      <!-- Display recipe_id start -->
       <dd>
         <% if @recipe_review.recipe.present? %>
           <%= link_to recipe_review.recipe, recipe_review.recipe %>
         <% end %>
       </dd>
-      <!-- Display recipe_id end -->
 
       <dt>Rating</dt>
-      <!-- Display rating start -->
       <dd><%= recipe_review.rating %></dd>
-      <!-- Display rating end -->
 
       <dt>Review</dt>
-      <!-- Display review start -->
       <dd><%= recipe_review.review %></dd>
-      <!-- Display review end -->
 
       <dt>Recipe name</dt>
-      <!-- Display recipe_name start -->
       <dd><%= recipe_review.recipe_name %></dd>
-      <!-- Display recipe_name end -->
 
     </dl>
 
@@ -45,7 +35,6 @@
         <%= link_to_show_or_back recipe_review, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link recipe_review start -->
       <div class="col">
         <% if current_user == @recipe_review.reviewer %>
           <%= link_to edit_recipe_review_url(recipe_review), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -53,9 +42,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link recipe_review end -->
 
-      <!-- Delete link recipe_review start -->
       <div class="col">
         <% if current_user == @recipe_review.reviewer %>
           <%= link_to recipe_review, method: :delete, data: { confirm: "Do you really want to delete this recipe_review?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -63,7 +50,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link recipe_review end -->
     </div>
   </div>
 

@@ -6,24 +6,16 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Recipe name</dt>
-      <!-- Display recipe_name start -->
       <dd><%= recipe.recipe_name %></dd>
-      <!-- Display recipe_name end -->
 
       <dt>Servings</dt>
-      <!-- Display servings start -->
       <dd><%= recipe.servings %></dd>
-      <!-- Display servings end -->
 
       <dt>Cooking time minutes</dt>
-      <!-- Display cooking_time_minutes start -->
       <dd><%= recipe.cooking_time_minutes %></dd>
-      <!-- Display cooking_time_minutes end -->
 
       <dt>Instructions</dt>
-      <!-- Display instructions start -->
       <dd><%= recipe.instructions %></dd>
-      <!-- Display instructions end -->
 
     </dl>
 
@@ -32,21 +24,17 @@
         <%= link_to_show_or_back recipe, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link recipe start -->
       <div class="col">
         <%= link_to edit_recipe_url(recipe), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link recipe end -->
 
-      <!-- Delete link recipe start -->
       <div class="col">
         <%= link_to recipe, method: :delete, data: { confirm: "Do you really want to delete this recipe?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link recipe end -->
     </div>
   </div>
 

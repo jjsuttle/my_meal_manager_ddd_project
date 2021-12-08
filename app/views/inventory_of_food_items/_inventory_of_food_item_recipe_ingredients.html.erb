@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @inventory_of_food_item.recipe_ingredients.each do |recipe_ingredient| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to recipe_ingredient, recipe_ingredient %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to recipe_ingredient, method: :delete, data: { confirm: "Do you really want to delete this recipe_ingredient" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="inventory_of_food_item_recipe_ingredients_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "inventory_of_food_items/inventory_of_food_item_recipe_ingredients_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 
