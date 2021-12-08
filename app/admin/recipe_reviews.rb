@@ -1,5 +1,7 @@
 ActiveAdmin.register RecipeReview do
 
+ permit_params :reviewer_id, :recipe_id, :rating, :review, :recipe_name
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
