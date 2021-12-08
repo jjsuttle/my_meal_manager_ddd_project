@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Inventory Of Food Items
+
+    <a data-toggle="collapse" href="#user_inventory_of_food_items_new_form">
+      Add inventory of food item
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.inventory_of_food_items.each do |inventory_of_food_item| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to inventory_of_food_item, inventory_of_food_item %>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="user_inventory_of_food_items_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

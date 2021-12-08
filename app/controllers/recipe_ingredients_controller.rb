@@ -42,8 +42,14 @@ class RecipeIngredientsController < ApplicationController
   # DELETE /recipe_ingredients/1
   def destroy
     @recipe_ingredient.destroy
-    redirect_to recipe_ingredients_url, notice: 'Recipe ingredient was successfully destroyed.'
+    message = "RecipeIngredient was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to recipe_ingredients_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
