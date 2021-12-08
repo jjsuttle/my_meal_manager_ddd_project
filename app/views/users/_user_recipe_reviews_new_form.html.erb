@@ -13,7 +13,7 @@
     <%= f.label :recipe_id %>
 
     <!-- Input for recipe_id start -->
-    <%= f.text_field :recipe_id, class: "form-control" %>
+    <%= f.collection_select :recipe_id, Recipe.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for recipe_id end -->
   </div>
   <!-- Label and input for recipe_id end -->
