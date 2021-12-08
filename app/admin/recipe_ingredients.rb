@@ -1,5 +1,7 @@
 ActiveAdmin.register RecipeIngredient do
 
+ permit_params :recipe_id, :food_id, :ingredient_name, :quantity, :quantity_units
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
