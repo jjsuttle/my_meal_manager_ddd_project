@@ -1,6 +1,9 @@
 class Recipe < ApplicationRecord
   # Direct associations
 
+  has_many   :recipe_ingredients,
+             :dependent => :destroy
+
   has_many   :recipe_reviews,
              :dependent => :destroy
 
