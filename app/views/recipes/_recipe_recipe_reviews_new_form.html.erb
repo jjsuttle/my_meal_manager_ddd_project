@@ -3,13 +3,9 @@
 <!-- Form recipe_review end -->
 
   <!-- Label and input for reviewer_id start -->
-  <div class="form-group">
-    <%= f.label :reviewer_id %>
-
-    <!-- Input for reviewer_id start -->
-    <%= f.collection_select :reviewer_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for reviewer_id end -->
-  </div>
+  <!-- Input for "reviewer_id" start -->
+  <%= f.hidden_field :reviewer_id, value: current_user.id %>
+  <!-- Input for "reviewer_id" end -->
   <!-- Label and input for reviewer_id end -->
 
   <!-- Label and input for recipe_id start -->

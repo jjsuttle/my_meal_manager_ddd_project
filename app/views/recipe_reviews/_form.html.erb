@@ -2,30 +2,9 @@
 
 <%= form_with(model: recipe_review, local: true, novalidate: true, class: "mb-3") do |f| %>
   <!-- Label and input for reviewer_id start -->
-  <div class="form-group">
-    <% reviewer_class = "form-control" %>
-    <% reviewer_was_invalid = recipe_review.errors.include?(:reviewer) %>
-
-    <% if was_validated %>
-      <% if reviewer_was_invalid %>
-        <% reviewer_class << " is-invalid" %>
-      <% else %>
-        <% reviewer_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :reviewer_id %>
-    <!-- Input for reviewer_id start -->
-    <%= f.collection_select :reviewer_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for reviewer_id end -->
-    <% if reviewer_was_invalid %>
-      <% recipe_review.errors.full_messages_for(:reviewer).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <!-- Input for "reviewer_id" start -->
+  <%= f.hidden_field :reviewer_id, value: current_user.id %>
+  <!-- Input for "reviewer_id" end -->
   <!-- Label and input for reviewer_id end -->
   <!-- Label and input for recipe_id start -->
   <div class="form-group">
