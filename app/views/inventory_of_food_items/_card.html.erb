@@ -1,0 +1,71 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Inventory Of Food Item #<%= inventory_of_food_item.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= inventory_of_food_item.user_id %></dd>
+      <!-- Display user_id end -->
+
+      <dt>Date purchased</dt>
+      <!-- Display date_purchased start -->
+      <dd><%= inventory_of_food_item.date_purchased %></dd>
+      <!-- Display date_purchased end -->
+
+      <dt>Expiration date</dt>
+      <!-- Display expiration_date start -->
+      <dd><%= inventory_of_food_item.expiration_date %></dd>
+      <!-- Display expiration_date end -->
+
+      <dt>Days until expiration</dt>
+      <!-- Display days_until_expiration start -->
+      <dd><%= inventory_of_food_item.days_until_expiration %></dd>
+      <!-- Display days_until_expiration end -->
+
+      <dt>Purchased status</dt>
+      <!-- Display purchased_status start -->
+      <dd><%= inventory_of_food_item.purchased_status %></dd>
+      <!-- Display purchased_status end -->
+
+      <dt>Food name</dt>
+      <!-- Display food_name start -->
+      <dd><%= inventory_of_food_item.food_name %></dd>
+      <!-- Display food_name end -->
+
+      <dt>Notes</dt>
+      <!-- Display notes start -->
+      <dd><%= inventory_of_food_item.notes %></dd>
+      <!-- Display notes end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back inventory_of_food_item, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link inventory_of_food_item start -->
+      <div class="col">
+        <%= link_to edit_inventory_of_food_item_url(inventory_of_food_item), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link inventory_of_food_item end -->
+
+      <!-- Delete link inventory_of_food_item start -->
+      <div class="col">
+        <%= link_to inventory_of_food_item, method: :delete, data: { confirm: "Do you really want to delete this inventory_of_food_item?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link inventory_of_food_item end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(inventory_of_food_item.updated_at) %> ago
+  </div>
+</div>
