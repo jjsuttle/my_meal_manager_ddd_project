@@ -3,7 +3,7 @@ class RecipeIngredientsController < ApplicationController
 
   # GET /recipe_ingredients
   def index
-    @recipe_ingredients = RecipeIngredient.all
+    @recipe_ingredients = RecipeIngredient.page(params[:page]).per(10)
   end
 
   # GET /recipe_ingredients/1

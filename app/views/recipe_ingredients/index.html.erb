@@ -34,6 +34,10 @@
       <div class="list-group list-group-flush">
         <%= render collection: @recipe_ingredients, partial: "list_item", as: :recipe_ingredient %>
       </div>
+      <div class="card-footer d-flex justify-content-center">
+        <%= paginate @recipe_ingredients, theme: 'twitter-bootstrap-4' %>
+      </div>
+
     </div>
   </div>
 </div>
