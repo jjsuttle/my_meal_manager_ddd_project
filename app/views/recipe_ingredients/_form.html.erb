@@ -16,7 +16,7 @@
 
     <%= f.label :recipe_id %>
     <!-- Input for recipe_id start -->
-    <%= f.number_field :recipe_id, class: recipe_class, placeholder: "Enter recipe" %>
+    <%= f.collection_select :recipe_id, Recipe.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for recipe_id end -->
     <% if recipe_was_invalid %>
       <% recipe_ingredient.errors.full_messages_for(:recipe).each do |message| %>
