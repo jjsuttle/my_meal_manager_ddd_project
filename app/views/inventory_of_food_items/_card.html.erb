@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= inventory_of_food_item.user_id %></dd>
+      <dd>
+        <% if @inventory_of_food_item.user.present? %>
+          <%= link_to inventory_of_food_item.user, inventory_of_food_item.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Date purchased</dt>

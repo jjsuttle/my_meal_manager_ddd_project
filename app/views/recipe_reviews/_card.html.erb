@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Reviewer</dt>
       <!-- Display reviewer_id start -->
-      <dd><%= recipe_review.reviewer_id %></dd>
+      <dd>
+        <% if @recipe_review.reviewer.present? %>
+          <%= link_to recipe_review.reviewer, recipe_review.reviewer %>
+        <% end %>
+      </dd>
       <!-- Display reviewer_id end -->
 
       <dt>Recipe</dt>
       <!-- Display recipe_id start -->
-      <dd><%= recipe_review.recipe_id %></dd>
+      <dd>
+        <% if @recipe_review.recipe.present? %>
+          <%= link_to recipe_review.recipe, recipe_review.recipe %>
+        <% end %>
+      </dd>
       <!-- Display recipe_id end -->
 
       <dt>Rating</dt>
