@@ -43,7 +43,7 @@
     <%= f.label :purchased_status %>
 
     <!-- Input for purchased_status start -->
-    <%= f.text_field :purchased_status, class: "form-control" %>
+    <%= f.select :purchased_status, options_for_select(InventoryOfFoodItem.purchased_statuses.keys), {}, class: "form-control" %>
     <!-- Input for purchased_status end -->
   </div>
   <!-- Label and input for purchased_status end -->

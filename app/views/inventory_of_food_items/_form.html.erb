@@ -120,7 +120,7 @@
 
     <%= f.label :purchased_status %>
     <!-- Input for purchased_status start -->
-    <%= f.number_field :purchased_status, class: purchased_status_class, placeholder: "Enter purchased status" %>
+    <%= f.select :purchased_status, options_for_select(InventoryOfFoodItem.purchased_statuses.keys), {}, class: "form-control" %>
     <!-- Input for purchased_status end -->
     <% if purchased_status_was_invalid %>
       <% inventory_of_food_item.errors.full_messages_for(:purchased_status).each do |message| %>
