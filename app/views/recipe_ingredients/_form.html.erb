@@ -120,7 +120,7 @@
 
     <%= f.label :quantity_units %>
     <!-- Input for quantity_units start -->
-    <%= f.number_field :quantity_units, class: quantity_unit_class, placeholder: "Enter quantity unit" %>
+    <%= f.select :quantity_units, options_for_select(RecipeIngredient.quantity_units.keys), {}, class: "form-control" %>
     <!-- Input for quantity_units end -->
     <% if quantity_unit_was_invalid %>
       <% recipe_ingredient.errors.full_messages_for(:quantity_unit).each do |message| %>

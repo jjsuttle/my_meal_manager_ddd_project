@@ -43,7 +43,7 @@
     <%= f.label :quantity_units %>
 
     <!-- Input for quantity_units start -->
-    <%= f.text_field :quantity_units, class: "form-control" %>
+    <%= f.select :quantity_units, options_for_select(RecipeIngredient.quantity_units.keys), {}, class: "form-control" %>
     <!-- Input for quantity_units end -->
   </div>
   <!-- Label and input for quantity_units end -->
