@@ -16,7 +16,7 @@
 
     <%= f.label :reviewer_id %>
     <!-- Input for reviewer_id start -->
-    <%= f.number_field :reviewer_id, class: reviewer_class, placeholder: "Enter reviewer" %>
+    <%= f.collection_select :reviewer_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for reviewer_id end -->
     <% if reviewer_was_invalid %>
       <% recipe_review.errors.full_messages_for(:reviewer).each do |message| %>

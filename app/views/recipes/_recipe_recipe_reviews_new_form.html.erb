@@ -7,7 +7,7 @@
     <%= f.label :reviewer_id %>
 
     <!-- Input for reviewer_id start -->
-    <%= f.text_field :reviewer_id, class: "form-control" %>
+    <%= f.collection_select :reviewer_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for reviewer_id end -->
   </div>
   <!-- Label and input for reviewer_id end -->
