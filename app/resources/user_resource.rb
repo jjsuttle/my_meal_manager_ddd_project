@@ -9,6 +9,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :inventory_of_food_items
+
   has_many   :recipe_reviews,
              foreign_key: :reviewer_id
 
