@@ -6,7 +6,8 @@ class RecipeIngredientResource < ApplicationResource
   attribute :food_id, :integer
   attribute :ingredient_name, :string
   attribute :quantity, :integer
-  attribute :quantity_units, :string_enum, allow: RecipeIngredient.quantity_units.keys
+  attribute :quantity_units, :string_enum,
+            allow: RecipeIngredient.quantity_units.keys
 
   # Direct associations
 
@@ -16,5 +17,4 @@ class RecipeIngredientResource < ApplicationResource
              resource: InventoryOfFoodItemResource
 
   # Indirect associations
-
 end

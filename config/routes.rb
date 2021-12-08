@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  scope path: ApplicationResource.endpoint_namespace, defaults: { format: :jsonapi } do
-    scope module: 'api/v1', as: 'api' do
+  scope path: ApplicationResource.endpoint_namespace,
+        defaults: { format: :jsonapi } do
+    scope module: "api/v1", as: "api" do
       resources :recipe_reviews
 
       resources :recipes
@@ -10,14 +11,13 @@ Rails.application.routes.draw do
       resources :inventory_of_food_items
 
       resources :users
-
     end
-    mount VandalUi::Engine, at: '/vandal'
+    mount VandalUi::Engine, at: "/vandal"
     # your routes go here
   end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root :to => "inventory_of_food_items#index"
+  root to: "inventory_of_food_items#index"
   resources :recipe_reviews
   resources :recipes
   resources :recipe_ingredients

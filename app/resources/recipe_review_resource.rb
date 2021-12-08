@@ -16,5 +16,4 @@ class RecipeReviewResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

@@ -2,10 +2,10 @@ class Recipe < ApplicationRecord
   # Direct associations
 
   has_many   :recipe_ingredients,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :recipe_reviews,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -16,5 +16,4 @@ class Recipe < ApplicationRecord
   def to_s
     recipe_name
   end
-
 end

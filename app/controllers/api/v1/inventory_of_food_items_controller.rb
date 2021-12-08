@@ -13,7 +13,7 @@ class Api::V1::InventoryOfFoodItemsController < Api::V1::GraphitiController
     inventory_of_food_item = InventoryOfFoodItemResource.build(params)
 
     if inventory_of_food_item.save
-      render jsonapi: inventory_of_food_item, status: 201
+      render jsonapi: inventory_of_food_item, status: :created
     else
       render jsonapi_errors: inventory_of_food_item
     end
@@ -33,7 +33,7 @@ class Api::V1::InventoryOfFoodItemsController < Api::V1::GraphitiController
     inventory_of_food_item = InventoryOfFoodItemResource.find(params)
 
     if inventory_of_food_item.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: inventory_of_food_item
     end

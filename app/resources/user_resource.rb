@@ -15,5 +15,4 @@ class UserResource < ApplicationResource
              foreign_key: :reviewer_id
 
   # Indirect associations
-
 end

@@ -4,7 +4,7 @@ class RecipeReview < ApplicationRecord
   belongs_to :recipe
 
   belongs_to :reviewer,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class RecipeReview < ApplicationRecord
   def to_s
     recipe_name
   end
-
 end

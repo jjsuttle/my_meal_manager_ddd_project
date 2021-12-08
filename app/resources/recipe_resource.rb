@@ -14,5 +14,4 @@ class RecipeResource < ApplicationResource
   has_many   :recipe_reviews
 
   # Indirect associations
-
 end

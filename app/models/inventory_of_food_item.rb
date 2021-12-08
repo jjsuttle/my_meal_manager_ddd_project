@@ -1,11 +1,11 @@
 class InventoryOfFoodItem < ApplicationRecord
-  enum purchased_status: {"need_to_purchase"=>0, "purchased"=>1} 
+  enum purchased_status: { "need_to_purchase" => 0, "purchased" => 1 }
 
   # Direct associations
 
   has_many   :recipe_ingredients,
-             :foreign_key => "food_id",
-             :dependent => :nullify
+             foreign_key: "food_id",
+             dependent: :nullify
 
   belongs_to :user
 
@@ -18,5 +18,4 @@ class InventoryOfFoodItem < ApplicationRecord
   def to_s
     food_name
   end
-
 end

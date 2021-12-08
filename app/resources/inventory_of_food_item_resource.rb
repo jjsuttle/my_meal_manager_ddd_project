@@ -6,7 +6,8 @@ class InventoryOfFoodItemResource < ApplicationResource
   attribute :date_purchased, :date
   attribute :expiration_date, :date
   attribute :days_until_expiration, :integer
-  attribute :purchased_status, :string_enum, allow: InventoryOfFoodItem.purchased_statuses.keys
+  attribute :purchased_status, :string_enum,
+            allow: InventoryOfFoodItem.purchased_statuses.keys
   attribute :food_name, :string
   attribute :notes, :string
 
@@ -18,5 +19,4 @@ class InventoryOfFoodItemResource < ApplicationResource
   belongs_to :user
 
   # Indirect associations
-
 end

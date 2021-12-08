@@ -1,6 +1,6 @@
 ActiveAdmin.register RecipeIngredient do
-
- permit_params :recipe_id, :food_id, :ingredient_name, :quantity, :quantity_units
+  permit_params :recipe_id, :food_id, :ingredient_name, :quantity,
+                :quantity_units
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +14,4 @@ ActiveAdmin.register RecipeIngredient do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end
