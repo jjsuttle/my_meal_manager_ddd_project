@@ -15,8 +15,10 @@
         <!-- Show link end -->
 
         <!-- Delete link start -->
-        <%= link_to recipe_review, method: :delete, data: { confirm: "Do you really want to delete this recipe_review" } do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == recipe_review.reviewer %>
+          <%= link_to recipe_review, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
         <!-- Delete link end -->
 

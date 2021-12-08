@@ -39,16 +39,20 @@
 
       <!-- Edit link recipe_review start -->
       <div class="col">
-        <%= link_to edit_recipe_review_url(recipe_review), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @recipe_review.reviewer %>
+          <%= link_to edit_recipe_review_url(recipe_review), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link recipe_review end -->
 
       <!-- Delete link recipe_review start -->
       <div class="col">
-        <%= link_to recipe_review, method: :delete, data: { confirm: "Do you really want to delete this recipe_review?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @recipe_review.reviewer %>
+          <%= link_to recipe_review, method: :delete, data: { confirm: "Do you really want to delete this recipe_review?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link recipe_review end -->

@@ -1,4 +1,6 @@
 class RecipeReviewsController < ApplicationController
+  before_action :current_user_must_be_recipe_review_reviewer, only: [:edit, :update, :destroy] 
+
   before_action :set_recipe_review, only: [:show, :edit, :update, :destroy]
 
   # GET /recipe_reviews
@@ -57,6 +59,14 @@ class RecipeReviewsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_recipe_review_reviewer
+    set_recipe_review
+    unless current_user == @recipe_review.reviewer
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe_review
       @recipe_review = RecipeReview.find(params[:id])
