@@ -5,7 +5,8 @@ class InventoryOfFoodItemsController < ApplicationController
 
   # GET /inventory_of_food_items
   def index
-    @inventory_of_food_items = current_user.inventory_of_food_items.page(params[:page]).per(10)
+    @q = current_user.inventory_of_food_items.ransack(params[:q])
+    @inventory_of_food_items = @q.result(:distinct => true).includes(:user, :recipe_ingredients).page(params[:page]).per(10)
   end
 
   # GET /inventory_of_food_items/1

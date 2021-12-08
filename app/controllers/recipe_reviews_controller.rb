@@ -5,7 +5,8 @@ class RecipeReviewsController < ApplicationController
 
   # GET /recipe_reviews
   def index
-    @recipe_reviews = RecipeReview.page(params[:page]).per(10)
+    @q = RecipeReview.ransack(params[:q])
+    @recipe_reviews = @q.result(:distinct => true).includes(:reviewer, :recipe).page(params[:page]).per(10)
   end
 
   # GET /recipe_reviews/1
