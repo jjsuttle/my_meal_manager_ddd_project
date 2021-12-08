@@ -12,6 +12,9 @@ class InventoryOfFoodItemResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :recipe_ingredients,
+             foreign_key: :food_id
+
   belongs_to :user
 
   # Indirect associations

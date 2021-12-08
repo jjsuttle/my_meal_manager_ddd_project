@@ -10,6 +10,9 @@ class RecipeIngredientResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :food,
+             resource: InventoryOfFoodItemResource
+
   # Indirect associations
 
 end
