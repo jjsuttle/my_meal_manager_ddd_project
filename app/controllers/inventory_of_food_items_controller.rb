@@ -8,6 +8,7 @@ class InventoryOfFoodItemsController < ApplicationController
 
   # GET /inventory_of_food_items/1
   def show
+    @recipe_ingredient = RecipeIngredient.new
   end
 
   # GET /inventory_of_food_items/new
@@ -24,7 +25,12 @@ class InventoryOfFoodItemsController < ApplicationController
     @inventory_of_food_item = InventoryOfFoodItem.new(inventory_of_food_item_params)
 
     if @inventory_of_food_item.save
-      redirect_to @inventory_of_food_item, notice: 'Inventory of food item was successfully created.'
+      message = 'InventoryOfFoodItem was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @inventory_of_food_item, notice: message
+      end
     else
       render :new
     end

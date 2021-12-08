@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @inventory_of_food_item = InventoryOfFoodItem.new
+    @recipe_review = RecipeReview.new
   end
 
   # GET /users/new
