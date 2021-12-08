@@ -1,0 +1,135 @@
+<% was_validated = recipe_review.errors.any? %>
+
+<%= form_with(model: recipe_review, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for reviewer_id start -->
+  <div class="form-group">
+    <% reviewer_class = "form-control" %>
+    <% reviewer_was_invalid = recipe_review.errors.include?(:reviewer) %>
+
+    <% if was_validated %>
+      <% if reviewer_was_invalid %>
+        <% reviewer_class << " is-invalid" %>
+      <% else %>
+        <% reviewer_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :reviewer_id %>
+    <!-- Input for reviewer_id start -->
+    <%= f.number_field :reviewer_id, class: reviewer_class, placeholder: "Enter reviewer" %>
+    <!-- Input for reviewer_id end -->
+    <% if reviewer_was_invalid %>
+      <% recipe_review.errors.full_messages_for(:reviewer).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for reviewer_id end -->
+  <!-- Label and input for recipe_id start -->
+  <div class="form-group">
+    <% recipe_class = "form-control" %>
+    <% recipe_was_invalid = recipe_review.errors.include?(:recipe) %>
+
+    <% if was_validated %>
+      <% if recipe_was_invalid %>
+        <% recipe_class << " is-invalid" %>
+      <% else %>
+        <% recipe_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :recipe_id %>
+    <!-- Input for recipe_id start -->
+    <%= f.number_field :recipe_id, class: recipe_class, placeholder: "Enter recipe" %>
+    <!-- Input for recipe_id end -->
+    <% if recipe_was_invalid %>
+      <% recipe_review.errors.full_messages_for(:recipe).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for recipe_id end -->
+  <!-- Label and input for rating start -->
+  <div class="form-group">
+    <% rating_class = "form-control" %>
+    <% rating_was_invalid = recipe_review.errors.include?(:rating) %>
+
+    <% if was_validated %>
+      <% if rating_was_invalid %>
+        <% rating_class << " is-invalid" %>
+      <% else %>
+        <% rating_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :rating %>
+    <!-- Input for rating start -->
+    <%= f.text_field :rating, class: rating_class, placeholder: "Enter rating" %>
+    <!-- Input for rating end -->
+    <% if rating_was_invalid %>
+      <% recipe_review.errors.full_messages_for(:rating).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for rating end -->
+  <!-- Label and input for review start -->
+  <div class="form-group">
+    <% review_class = "form-control" %>
+    <% review_was_invalid = recipe_review.errors.include?(:review) %>
+
+    <% if was_validated %>
+      <% if review_was_invalid %>
+        <% review_class << " is-invalid" %>
+      <% else %>
+        <% review_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :review %>
+    <!-- Input for review start -->
+    <%= f.text_area :review, class: review_class, placeholder: "Enter review" %>
+    <!-- Input for review end -->
+    <% if review_was_invalid %>
+      <% recipe_review.errors.full_messages_for(:review).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for review end -->
+  <!-- Label and input for recipe_name start -->
+  <div class="form-group">
+    <% recipe_name_class = "form-control" %>
+    <% recipe_name_was_invalid = recipe_review.errors.include?(:recipe_name) %>
+
+    <% if was_validated %>
+      <% if recipe_name_was_invalid %>
+        <% recipe_name_class << " is-invalid" %>
+      <% else %>
+        <% recipe_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :recipe_name %>
+    <!-- Input for recipe_name start -->
+    <%= f.text_field :recipe_name, class: recipe_name_class, placeholder: "Enter recipe name" %>
+    <!-- Input for recipe_name end -->
+    <% if recipe_name_was_invalid %>
+      <% recipe_review.errors.full_messages_for(:recipe_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for recipe_name end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
