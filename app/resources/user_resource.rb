@@ -9,6 +9,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :recipe_reviews,
+             foreign_key: :reviewer_id
+
   # Indirect associations
 
 end
