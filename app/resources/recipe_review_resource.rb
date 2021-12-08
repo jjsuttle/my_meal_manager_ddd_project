@@ -10,6 +10,8 @@ class RecipeReviewResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :recipe
+
   belongs_to :reviewer,
              resource: UserResource
 

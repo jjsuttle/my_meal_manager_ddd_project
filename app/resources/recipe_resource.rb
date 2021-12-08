@@ -9,6 +9,8 @@ class RecipeResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :recipe_reviews
+
   # Indirect associations
 
 end
